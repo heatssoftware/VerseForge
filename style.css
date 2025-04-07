@@ -1,0 +1,245 @@
+
+.header-effect {
+    background: radial-gradient(
+        circle at center,
+        rgba(93, 50, 0, 0.708) 0%,
+        rgba(0, 11, 49, 0.564) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: headerPulse 10s infinite ease-in-out;
+}
+.header-form {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+.arrow-down {
+    position: absolute;
+    top: 80%;
+    width: 50px;
+    height: 50px;
+}
+.arrow-down img {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -20px);
+    }
+    60% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+@keyframes headerPulse {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+    
+}
+
+.head_container {
+    background-color: rgba(0, 16, 22, 0.419);
+    border-radius: 1em 1em 0em 0em;
+    border: #9a9a9a39 1px solid;
+    border-bottom: none;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    background: #090909;
+    overflow-x: hidden;
+}
+
+#app-description {
+    background-color: #290e00;
+    font-size: 1.2em;
+    color: #ccc;
+    text-align: center;
+    padding: 1em 10em;
+}
+#app-features {
+    background-color: #0a0300;
+    font-size: 1.2em;
+    color: #ccc;
+    text-align: center;
+    padding: 1em 10em;
+}
+#app-features h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff6700;
+}
+#app-features ul {
+    list-style-type: none;
+    padding: 0;
+}
+#app-features li {
+    background-color: #2d0e00;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+#app-features li::before {
+    content: "✔️";
+    margin-right: 10px;
+    color: #ff6700;
+}
+#app-features li:hover {
+    color: #ff6700;
+    background-color: #090909;
+}
+#app-features li:hover::before {
+    content: "✅";
+    color: #ff6700;
+}
+
+/* Container for the page */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    background-image: url("img/planet_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    height: 100vh;
+    color: white;
+}
+
+.head_container h1 {
+    font-size: 3em;
+    margin: 0;
+    position: relative;
+    top: 10%;
+}
+
+.head_container p {
+    font-size: 1.2em;
+    color: #ccc;
+    position: relative;
+    top: 10%;
+}
+
+/* Footer and Email Section */
+footer {
+    text-align: center;
+    background: #6b4200;
+    padding: 40px 20px;
+    color: white;
+}
+
+header form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+header form input {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    border-radius: 8em 0em 0em 8em;
+    background: #28282893;
+    color: rgb(255, 175, 117);
+}
+header form input::selection {
+    background: #ff6700;
+    color: white;
+}
+header form input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ff6700;
+    background: #242424cf;
+    color: #ff6600;
+}
+header form input:focus::placeholder {
+    color: #893700;
+    font-style: normal;
+}
+header form input:-webkit-autofill, header form input:autofill {
+    -webkit-box-shadow: 0 0 0 30px #0d0d0d inset !important;
+    -webkit-text-fill-color: #ff6700 !important;
+    color: #ff6700 !important;
+    box-shadow: 0 0 5px #ff6700;
+}
+
+header form button {
+    padding: 15px 30px;
+    background: #ff6700;
+    border: none;
+    border-radius: 0em 8em 8em 0em;
+    color: white;
+    font-size: 1.2em;
+    min-width: 8em;
+    cursor: pointer;
+    
+}
+
+header form button:hover {
+    background: #e65b00;
+}
+
+.social-media-links a {
+    margin: 0 10px;
+    color: #45beff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-style: oblique;
+}
+
+/* Scroll animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
