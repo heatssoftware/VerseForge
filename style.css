@@ -1,4 +1,12 @@
 
+header {
+    position: relative;
+    overflow: hidden;
+    background-color: #000000;
+    color: white;
+}
+
+
 .header-effect {
     background: radial-gradient(
         circle at center,
@@ -243,3 +251,43 @@ header form button:hover {
     }
 }
 
+
+
+@media screen and (max-width: 768px) {
+    .head_container {
+        width: 90%;
+        height: 80%;
+    }
+    .head_container h1 {
+        font-size: 2em;
+    }
+    .head_container p {
+        font-size: 1em;
+    }
+    .arrow-down {
+        top: 70%;
+    }
+
+    header form input {
+        width: 100%;
+        font-size: 1em;
+        border-radius: 1em 1em 1em 1em;
+        border: rgba(122, 122, 122, 0.527) 1px solid;
+    }
+    header form button {
+        width: 100%;
+        border-radius: 1em 1em 1em 1em;
+        
+        font-size: 1em;
+        margin: 10px 0;
+    }
+    header form {
+        flex-direction: column;
+    }
+    
+    #app-description,
+    #app-features {
+        padding: 1em 2em;
+    }
+    
+}
