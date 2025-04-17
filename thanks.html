@@ -7,26 +7,41 @@
     <title>Thank You</title>
 </head>
 <body>
-    <div class="background"></div>
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-          <source src="img/night_city.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-    </div>      
-    <div class="container">
-        <h1>Thank You!</h1>
-        <p>Your email has been successfully submitted. You are now on the waitlist!</p>
-        <p>We appreciate your interest and will keep you updated.</p>
-        <p><a href="/index.html">Go back to the homepage</a></p>
-    </div>
+        <h1>Yay! You are now on the waitlist!</h1>
+        
+        <p>Feel free to share this app with your friends and family! Every donation helps!</p>
+        <div class="button-container">
+          <button onclick="sharePage()">Share This App</button>
+          <button style="font-weight: bold;" onclick="window.location.href='https://patreon.com/VerseForge'">Donate</button>
+          <button onclick="copyLink()">Copy Link</button>
+        </div>
     <div class="footer">
         <p>Made with ❤️ by HeatsSoft</p>
         <div class="social-media-links">
             <a href="https://discord.gg/dPGXSbguW5" target="_blank">Discord</a>
             <a href="https://x.com/heatssoft" target="_blank">X (Twitter)</a>
-            <a href="https://patreon.com/VerseForge?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank">Patreon</a>
+            <a href="https://patreon.com/VerseForge" target="_blank">Patreon</a>
         </div>
     </div>
+    <script>
+        function sharePage() {
+          if (navigator.share) {
+            navigator.share({
+              title: 'VerseForge',
+              text: 'Check out this awesome desktop custimazation app!',
+              url: window.location.origin + '/',
+            })
+            .then(() => console.log('Shared successfully'))
+            .catch((error) => console.log('Error sharing:', error));
+          } else {
+            copyLink();
+          }
+        }
+        function copyLink() {
+            const url = window.location.origin + '/';
+            navigator.clipboard.writeText(url)
+            .catch(err => console.error('Failed to copy link:', err));
+        }
+    </script>
 </body>
 </html>

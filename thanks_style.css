@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
 }
 
 html {
@@ -17,15 +19,7 @@ body {
     width: 100vw;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: transparent;
-}
-.container {
-    background-color: rgba(0, 14, 35, 0.649);
-    padding: 50px;
-    border-radius: 10px;
-    border: #6464645f 1px solid;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(2px);
+    background: radial-gradient(circle, rgb(128, 47, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
 .footer {
@@ -57,12 +51,31 @@ h1, p {
 }
 h1 {
     color: #ff7b00;
-    font-size: 4rem;
+    font-size: calc(2rem + 4vw);
     text-shadow: 2px 2px 4px rgba(255, 131, 89, 0.596);
+    margin: 0.8rem;
 }
 p {
-    font-size: 1.2rem;
+    font-size: calc(1rem + 1vw);
 }
+
+.social-media-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+    gap: 20px;
+    
+}
+
 a {
     color: #ca6500;
     text-decoration: none;
@@ -72,40 +85,27 @@ a:hover {
     text-decoration: underline;
 }
 
-.background {
-    background-image: url("img/night_city.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -2;
 
+
+button {
+    background-color: #cf6400;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: calc(1rem + 1vw);
+    transition: background-color 0.3s ease;
+    height: 100%;
 }
-
-
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1;
+button:hover {
+    background-color: #ff7b00;
 }
-  
-.video-background video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+}
+button:active {
+    background-color: #ff7b00;
+    transform: translateY(2px);
 }
