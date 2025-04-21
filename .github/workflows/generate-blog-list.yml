@@ -1,0 +1,35 @@
+name: Generate Blog List
+
+on:
+  push:
+    paths:
+      - 'blogs/**'
+      - '.github/workflows/generate-blog-list.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies (if needed)
+      run: |
+        npm install  # tikai ja tev ir package.json, citādi vari izlaist
+
+    - name: Run generateList script
+      run: node blogs/generateList.js
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add blogs/list.json
+        git commit -m "Auto-update blog list" || echo "No changes to commit"
+        git push
