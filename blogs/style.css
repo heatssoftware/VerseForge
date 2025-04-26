@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: transparent;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(background.jpg) no-repeat center center fixed;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    background-size: cover;
+    overflow: hidden;
+    z-index: -2;
+}
+.background2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%);
+
+    z-index: -1;
+}
+
+
+a h1 {
+    font-size: calc(2rem + 1vw);
+    color: #ffffff;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 1rem;
+}
+a {
+    font-size: 1.2rem;
+    color: #007acc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+small {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+
+
+
+#blog-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    padding: 0;
+    margin: 0 4vw;
+}
+  
+.blog-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+  
+.blog-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.7), 0 0 40px rgba(0, 150, 255, 0.5);
+    cursor: pointer;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 150, 255, 0.3), 0 0 20px rgba(0, 150, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 150, 255, 0.6), 0 0 40px rgba(0, 150, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 150, 255, 0.3), 0 0 20px rgba(0, 150, 255, 0.2);
+    }
+}
+  
+.card-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+.card-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+  
+.card-content {
+    padding: 16px;
+}
+  
+.card-title {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+  
+.card-date {
+    font-size: 0.85rem;
+    color: #aaa;
+}

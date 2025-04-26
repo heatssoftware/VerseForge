@@ -1,4 +1,24 @@
 
+h1 {
+    text-align: center;
+    font-size: calc(2vw + 1rem);
+    margin: 0;
+    padding: 1vw;
+    color: #ff7023;
+}
+
+
+.show {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.hide {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+
 header {
     position: relative;
     overflow: hidden;
@@ -98,6 +118,36 @@ body {
     text-align: center;
     padding: 1vw 10vw;
 }
+.app-description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 1vw 0;
+}
+.app-description-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: right;
+}
+#editor-video {
+    width: 100%;
+    height: auto;
+    max-width: 50%;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 0 0 8vw;
+}
+
+.app-description-list li {
+    background-color: #2d0e00;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: calc(1vw + 1rem);
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
 #app-features {
     background-color: #0a0300;
     font-size: calc(2vw + 0.2rem);
@@ -110,24 +160,23 @@ body {
     padding: 0;
 }
 #app-features li {
-    background-color: #2d0e00;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 8px 0;
+    padding: 8px 16px;
     font-size: calc(1vw + 1rem);
     color: #ccc;
     transition: all 0.3s ease;
 }
 #app-features li::before {
-    content: "✔️";
     margin-right: 10px;
     color: #ff6700;
 }
 #app-features li:hover {
     color: #ff6700;
     background-color: #090909;
+    cursor: pointer;
 }
 #app-features li:hover::before {
-    content: "✅";
     color: #ff6700;
 }
 
@@ -233,6 +282,28 @@ header form button:hover {
     background: #e65b00;
 }
 
+
+.blog-link {
+    display: inline-block;
+    margin: 20px 0;
+    color: #ffe7d8;
+    text-decoration: none;
+    font-size: calc(0.5vw + 1rem);
+    border: 1px solid #ff9f5f;
+    border-radius: 16px;
+    background: rgba(100, 40, 0, 0.467);
+    padding: 10px 20px;
+    transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+.blog-link:hover {
+    color: #ff7b00;
+    background: rgba(96, 46, 0, 0.481);
+    border: 1px solid #ff7b00;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
 .social-media-links a {
     margin: 0 10px;
     color: #45beff;
@@ -256,6 +327,88 @@ header form button:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.progress_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: calc(5vh + 10px);
+    margin: 16px 4vw;
+    border-radius: 16px;
+    background-color: #4e1f00;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.progress_bar a {
+    color: #ff6700;
+    text-decoration: none;
+    font-size: calc(1vw + 0.5rem);
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.progress_bar_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff6700;
+    height: 100%;
+    border-radius: 16px;
+    width: 0%;
+    transition: width 1s ease-in-out;
+
+}
+
+.support-button {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffe7d8;
+    text-decoration: none;
+    text-align: center;
+    font-size: calc(0.5vw + 1rem);
+    border: 1px solid #ff9f5f;
+    border-radius: 16px;
+    background: rgba(100, 40, 0, 0.467);
+    padding: 10px 20px;
+    margin: 20px 0;
+    transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+
+.support-button:hover {
+    left: 50%;
+    transform: translateX(-50%) scale(1.05);
+    color: #ff7b00;
+    background: rgba(96, 46, 0, 0.481);
+    border: 1px solid #ff7b00;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#donation_desc {
+    font-size: calc(1vw + 0.5rem);
+    color: #ccc;
+    text-align: center;
+    padding: 1vw 10vw;
+    margin: 0 auto;
+}
+
+.iframe-container {
+    text-align: center;
+    margin: 0 auto;
+    
 }
 
 
@@ -299,6 +452,22 @@ header form button:hover {
     #app-description,
     #app-features {
         padding: 1vw 2vw;
+    }
+
+    #editor-video {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .app-description-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .app-description-list {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .app-description-list li {
+        font-size: calc(2vw + 0.5rem);
     }
     
 }

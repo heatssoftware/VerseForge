@@ -1,6 +1,14 @@
+const currentAmount = 53;
+const targetAmount = 300;
+
 document.addEventListener("DOMContentLoaded", function () {
     // Show progress items when they come into view
-    const progressItems = document.querySelectorAll('.progress-item');
+    const progressItems = document.querySelectorAll('.Aitem');
+
+    const progress_text = document.querySelector('.progress-text');
+    const progress_bar_fill = document.querySelector('.progress_bar_fill');
+    progress_bar_fill.style.width = (currentAmount / targetAmount) * 100 + '%';
+    progress_text.textContent = "$" + currentAmount + ' / $' + targetAmount + ' raised';
     
     function checkVisibility() {
         const triggerBottom = window.innerHeight / 5 * 4;
@@ -9,8 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const itemTop = item.getBoundingClientRect().top;
             if (itemTop < triggerBottom) {
                 item.classList.add('show');
+                item.classList.remove('hide');
             } else {
                 item.classList.remove('show');
+                item.classList.add('hide');
             }
         });
     }
@@ -38,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 form.reset();
-                window.location.href = 'thanks.html';
+                window.location.href = 'thanks';
             })
             .catch(error => {
                 alert('Error, please try again later.');
@@ -49,3 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Enable smooth scrolling via CSS
     document.documentElement.style.scrollBehavior = 'smooth';
 });
+
+
+
+function resizeIframe() {
+    var iframe = document.getElementById('myIframe');
+    iframe.height = iframe.contentWindow.document.documentElement.scrollHeight + 100 + "px";
+}

@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VerseForge - Transform Your Desktop</title>
+    <meta name="description" content="VerseForge is the ultimate music visualizer and lyric sync tool for your desktop. Create stunning animated backgrounds, personalize your music experience, and join early access today!">
+    <meta name="keywords" content="music visualizer, animated backgrounds, lyrics sync, desktop music experience, VerseForge, real-time lyrics, customize lyrics display">
+    <title>VerseForge - Sync Lyrics with Music & Customize Your Experience</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/VerseforgeLOGO_transparent.png" type="image/png">
 </head>
 <body>
     <header>
         <div class="header-effect"></div>
         <div class="head_container">
-            <h1>Sync lyrics with music.<br>Customize everything.</h1>
-            <p>VerseForge lets you display music-synced lyrics in unique styles on your desktop.<br>
-                Get early access and explore community-made themes.</p>
+            <h1>Bring Your Music to Life</h1>
+            <p>Experience Music Visually: Sync Lyrics with Stunning Animated Backgrounds</p>
             <div class="header-form">
                 <form action="https://formspree.io/f/xkgjvpqr" method="POST">
                     <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit">Join Now</button>
+                    <button type="submit">Join the Waitlist</button>
                 </form>
+                <a href="blogs" class="blog-link">Learn more!</a>
             </div>
             <a class="arrow-down" href="#app-description" aria-label="Scroll down to learn more about the app">
                 <img style="filter: invert(1);" width="50" height="50" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/>
@@ -26,35 +29,59 @@
     </header>
     
     <section id="app-description">
-      <h1>Application Description</h1>
-      <p>Our application will be a revolutionary platform that allows users to customize their computer or device using song lyrics, song images, and customization options. It will be similar to Rainmeter or Lively Wallpaper, but with additional features related to music and song lyrics. We aim to offer a unique experience where users can not only listen to music but also interact with it by creating custom themes where each song lyric and image becomes part of the user's screen experience.</p>
+        <h1 class="Aitem">Why VerseForge?</h1>
+        <div class="app-description-container">
+            <ul class="app-description-list">
+              <li class="Aitem">Real-Time Lyric Display</li>
+              <li class="Aitem">No Coding Required</li>
+              <li class="Aitem">Fully Customizable Themes</li>
+            </ul>
+            <video autoplay muted loop playsinline id="editor-video" class="Aitem">
+                <source src="video/editor.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section class="Aitem">
+        <h1>Help us grow!</h1>
+        <p id="donation_desc">We are a small team of developers and designers working hard to bring you the best experience possible. Your support means the world to us! Join our community and help us shape the future of VerseForge.</p>
+        <div class="progress_bar">
+            <a class="progress-text" href="https://patreon.com/VerseForge" target="_blank" class="progress_bar_link">0% Funded</a>
+            <div class="progress_bar_fill"></div>
+        </div>
+        <a class="support-button" href="https://patreon.com/VerseForge" target="_blank">Support Us on Patreon</a>
     </section>
 
     <section id="app-features">
-      <h1>Planned Features</h1>
-      <ul>
-        <li><strong>Song Lyrics Animations</strong><br> Each song will be displayed with animations where the lyrics appear on the screen, allowing users to follow along with the song. Animations will be varied – for example, text movement, fading, popping up, etc. Users will be able to choose from different animation styles to make their experience unique.</li>
-        <li><strong>Custom Theme Editors</strong><br> We will offer users the ability to create their own custom themes. These themes can include different fonts, colors, images, and animation styles. Using a "drag-and-drop" interface, users will be able to easily add elements and configure how the song lyrics and images will appear on the screen.</li>
-        <li><strong>Song Counters and Triggers</strong><br> Song Counters: Users will be able to set a specific number of songs after which the computer will perform a specific action. For example, after five songs are played, the computer could shut down or go into sleep mode. This feature will allow users to customize their computer based on their preferences.
-            Triggers: Each user will be able to add different "song triggers" that perform actions when certain songs are played. For example, the computer could execute certain actions when specific words or phrases appear in the song.</li>
-        <li><strong>Theme Library</strong><br> The app will offer pre-made themes (e.g., Christmas, Halloween, modern style, etc.), which users can select and customize for their music experience. These themes will be available for easy customization, offering different visual and animation options.</li>
-        <li><strong>Sharing and Collaboration</strong><br> Users will be able to create their own custom themes and share them with others. Other users will be able to download the theme and customize it according to their needs. There will also be an option to rate themes, suggest improvements, and even earn money from sharing them.</li>
-        <li><strong>User Feedback and Ratings</strong><br> Themes and ideas will be based on user feedback and ratings. Themes that receive high ratings will be highlighted so that other users can easily find and use them.</li>
-        <li><strong>Interactive Text and Customizations</strong><br> Users will be able to not only view song lyrics but also manipulate them by adding various effects. For example, adding text that moves up or down the screen, or accumulates after a set time of the song.</li>
-        <li><strong>Voting on Theme Improvements</strong><br> Users will be able to suggest improvements or corrections to the way song lyrics are displayed. This could involve grammar and design fixes, as well as adding interactive elements.</li>
-      </ul>
+        <h1>Planned Features:</h1>
+        <ul>
+          <li class="Aitem"><strong>Lyrics Animations:</strong> Customizable animations for lyrics (e.g., movement, fading).</li>
+          <li class="Aitem"><strong>Theme Editors:</strong> Create custom themes with fonts, colors, and animations.</li>
+          <li class="Aitem"><strong>Song Counters & Triggers:</strong> Set actions after a number of songs or specific lyrics.</li>
+          <li class="Aitem"><strong>Theme Library:</strong> Pre-made themes for easy customization.</li>
+          <li class="Aitem"><strong>Sharing & Collaboration:</strong> Share, download, and rate custom themes.</li>
+          <li class="Aitem"><strong>Feedback & Ratings:</strong> Highlight top-rated themes based on user feedback.</li>
+          <li class="Aitem"><strong>Interactive Lyrics:</strong> Add effects to lyrics, like movement or accumulation.</li>
+        </ul>
+
+        <a href="blogs/" class="blog-link">Read our blog for more details!</a>
+        
     </section>
     
-    <footer>
+    
+    <footer class="Aitem">
         <h2>Stay Updated</h2>
         <p>Join our waitlist to get exclusive early access.</p>
-        <p style="font-size: 1.5em;">Contact me</p>
+        <p style="font-size: 1.5em;">Contact us</p>
         <div class="social-media-links">
+            <p>dev@verseforge.site</p>
             <a href="https://discord.gg/dPGXSbguW5" target="_blank">Discord</a>
-            <a href="https://x.com/heatssoft" target="_blank">X (Twitter)</a>
+            <a href="https://x.com/heatssoftware" target="_blank">X (Twitter)</a>
             <a href="https://patreon.com/VerseForge" target="_blank">Patreon</a>
         </div>
         <p>Made with ❤️ by HeatsSoft</p>
+        <p>&copy; 2025 VerseForge. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
