@@ -21,9 +21,12 @@ jobs:
         with:
           python-version: '3.11'
 
+      
+      - name: Print all files
+        run: ls -R
+
       - name: Run generateList.py
-        working-directory: blogs  # <- !!! Norāda ka strādāsim no blogs mapes
-        run: python generateList.py
+        run: python blogs/generateList.py
 
       - name: Commit and push updated list.json
         run: |
