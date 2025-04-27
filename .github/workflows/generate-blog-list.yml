@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - 'blogs/**'
-      - 'blogs/generateList.py'
       - '.github/workflows/generate-blog-list.yml'
 
 jobs:
@@ -14,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # <- Lai velk visu repozitoriju, ne tikai pēdējos mainītos failus
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,7 +22,8 @@ jobs:
           python-version: '3.11'
 
       - name: Run generateList.py
-        run: python blogs/generateList.py
+        working-directory: blogs  # <- !!! Norāda ka strādāsim no blogs mapes
+        run: python generateList.py
 
       - name: Commit and push updated list.json
         run: |
