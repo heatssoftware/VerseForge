@@ -21,14 +21,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      
-      - name: Print working directory
-        run: pwd
-
-      - name: List all files and directories (detailed)
-        run: ls -laR
-
-
       - name: Run generateList.py
         run: python blogs/generateList.py
 
