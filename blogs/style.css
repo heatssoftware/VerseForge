@@ -6,34 +6,8 @@ html {
 }
 
 body {
-    background-color: transparent;
-}
-
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(background.jpg) no-repeat center center fixed;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    background-size: cover;
-    overflow: hidden;
-    z-index: -2;
-}
-.background2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%);
-
-    z-index: -1;
+    background: linear-gradient(to right, #1e1e1e, #2a2a2a);
+    color: #ffffff;
 }
 
 
