@@ -1,10 +1,29 @@
+::selection {
+    color: inherit;
+    text-decoration: underline;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    background: 
+    radial-gradient(circle at center, rgba(10, 9, 9, 0.9) 0%, rgba(25, 10, 2, 0.85) 50%, rgba(10, 10, 10, 0.95) 75%, #000000 100%),
+    radial-gradient(circle at 20% 30%, rgba(8, 4, 4, 0.2) 0%, transparent 70%),
+    radial-gradient(circle at 80% 70%, rgba(104, 0, 0, 0.5) 0%, transparent 80%);
+  
+    background-blend-mode: overlay;
+    overflow-x: hidden;
+}
 
 h1 {
     text-align: center;
     font-size: calc(2vw + 1rem);
     margin: 0;
     padding: 1vw;
-    color: #ff7023;
+    color: #ff5900;
+    text-shadow: #e16f1d 0px 0px 50px;
 }
 
 
@@ -12,36 +31,14 @@ h1 {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
+
+
 .hide {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     pointer-events: none;
 }
 
-
-header {
-    position: relative;
-    overflow: hidden;
-    background-color: #000000;
-    color: white;
-}
-
-
-.header-effect {
-    background: radial-gradient(
-        circle at center,
-        rgba(93, 50, 0, 0.708) 0%,
-        rgba(0, 11, 49, 0.564) 60%,
-        rgba(0, 0, 0, 0) 100%
-    );
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: headerPulse 10s infinite ease-in-out;
-}
 .header-form {
     position: relative;
     top: 10%;
@@ -50,71 +47,36 @@ header {
     text-align: center;
     z-index: 1;
 }
-.arrow-down {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-}
-
-.arrow-down img {
-    animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translate(-50%, 0);
-    }
-    40% {
-        transform: translate(-50%, -20px);
-    }
-    60% {
-        transform: translate(-50%, -10px);
-    }
-}
-
-@keyframes headerPulse {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-    
-}
 
 .head_container {
-    background-color: rgba(0, 16, 22, 0.419);
-    border-radius: 32px 32px 0 0;
-    border: #9a9a9a39 1px solid;
+    background-color: rgba(0, 0, 0, 0.419);
+    border-radius: 32px;
+    border: #d4d4d439 1px solid;
     border-bottom: none;
     backdrop-filter: blur(20px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 64px rgba(255, 162, 81, 0.2);
     position: absolute;
+    padding: 100vh, 100vh, 100vw, 100vw;
     width: 70%;
-    height: 80%;
-    top: 100%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -100%);
+    filter: blur(10px);
+    transform: translate(-50%, -60%);
+    opacity: 0;
+    animation: slideDown 0.5s forwards ease-in-out;
+}
 
+@keyframes slideDown {
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 
-body {
-    font-family: Arial, sans-serif;
-    color: white;
-    margin: 0;
-    padding: 0;
-    background: #090909;
-    overflow-x: hidden;
-}
 
 #app-description {
-    background-color: #290e00;
     font-size: calc(2vw + 0.2rem);
     color: #ccc;
     text-align: center;
@@ -137,12 +99,13 @@ body {
     height: auto;
     max-width: 50%;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 0 0 0 8vw;
+    box-shadow:
+    0 0 20px rgba(255, 102, 0, 0.5),    /* oranžs mirdzums */
+    0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .app-description-list li {
-    background-color: #2d0e00;
     border-radius: 10px;
     margin: 10px 0;
     font-size: calc(1vw + 1rem);
@@ -151,7 +114,6 @@ body {
 }
 
 #app-features {
-    background-color: #0a0300;
     font-size: calc(2vw + 0.2rem);
     color: #ccc;
     text-align: center;
@@ -169,14 +131,21 @@ body {
     color: #ccc;
     transition: all 0.3s ease;
 }
+#app-features li strong {
+    color: #ff6700;
+    transition: all 0.3s ease;
+}
+
 #app-features li::before {
     margin-right: 10px;
     color: #ff6700;
 }
 #app-features li:hover {
     color: #ff6700;
-    background-color: #090909;
     cursor: pointer;
+}
+#app-features li:hover strong {
+    color: #ffe7d8;
 }
 #app-features li:hover::before {
     color: #ff6700;
@@ -193,12 +162,14 @@ body {
 /* Header Section */
 header {
     text-align: center;
-    background-image: url("img/planet_bg.jpg");
+    /* background-image: url("img/planet_bg.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     
-    height: 100vh;
+    height: 120vh;
+    position: relative;
+    overflow: hidden;
     color: white;
 }
 
@@ -211,7 +182,7 @@ header {
 
 .head_container p {
     font-size: calc(1vw + 0.5rem);
-    padding: 1vw;
+    padding: 0.5vw;
     color: #ccc;
     position: relative;
     top: 10%;
@@ -220,12 +191,6 @@ header {
 /* Footer and Email Section */
 footer {
     text-align: center;
-    background: radial-gradient(
-        circle at top,
-        rgba(93, 50, 0, 0.708) 0%,
-        rgba(0, 11, 49, 0.564) 60%,
-        rgba(0, 0, 0, 0) 100%
-    );
     padding: 40px 20px;
     color: white;
 }
@@ -307,17 +272,23 @@ header form button:hover {
 }
 
 .social-media-links a {
-    margin: 0 10px;
+    margin: 0;
     color: #45beff;
     text-decoration: none;
     font-size: calc(2vw + 0.5rem);
     transition: color 0.3s ease;
     font-style: oblique;
 }
-.social-media-links a:hover {
-    color: #ff6700;
-    text-decoration: underline;
+.social-media-links img {
+    height: calc(2vw + 2vh + 10px);
+    padding: 10px;
+    transform: scale(1);
+    transition: transform 0.1s ease;
 }
+.social-media-links img:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
 
 /* Scroll animations */
 @keyframes fadeIn {
@@ -349,7 +320,7 @@ header form button:hover {
 }
 
 .progress_bar a {
-    color: #ff6700;
+    color: #ffffff;
     text-decoration: none;
     font-size: calc(1vw + 0.5rem);
     font-weight: bold;
@@ -369,7 +340,10 @@ header form button:hover {
     border-radius: 16px;
     width: 0%;
     transition: width 1s ease-in-out;
+}
 
+.progress_bar_fill.filled {
+  width: var(--target-width);
 }
 
 .support-button {
@@ -414,11 +388,8 @@ header form button:hover {
 }
 
 @media screen and (max-height: 500px) {
-    .arrow-down {
-        bottom: 5px;
-    }
     .head_container {
-        height: 100%;
+        width: 100%;
         border-radius: 0;
     }
 }
@@ -428,18 +399,12 @@ header form button:hover {
         top: 10%;
     }
 }
-@media screen and (max-height: 350px) {
-    .arrow-down {
-        display: none;
-    }
-}
 
 
 
 @media screen and (max-width: 600px) {
     .head_container {
         width: 90%;
-        height: 80%;
     }
     .head_container h1 {
         font-size: calc(3vw + 1rem);

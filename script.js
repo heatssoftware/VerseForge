@@ -6,14 +6,14 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", function () {
     // Progress Bar
-    const currentAmount = 53;
+    const currentAmount = 200;
     const targetAmount = 300;
     const progressItems = document.querySelectorAll('.Aitem');
     const progress_text = document.querySelector('.progress-text');
     const progress_bar_fill = document.querySelector('.progress_bar_fill');
 
     const progressPercent = Math.min((currentAmount / targetAmount) * 100, 100);
-    progress_bar_fill.style.width = progressPercent.toFixed(1) + '%';
+    progress_bar_fill.style.setProperty('--target-width', progressPercent.toFixed(1) + '%');
     progress_text.textContent = "$" + currentAmount + ' / $' + targetAmount + ' raised';
 
     function checkVisibility() {
@@ -23,9 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (itemTop < triggerBottom) {
                 item.classList.add('show');
                 item.classList.remove('hide');
+                if (item.classList.contains('progress_bar_fill')) {
+                    item.style.setProperty('--target-width', progressPercent.toFixed(1) + '%');
+                    item.classList.add('filled');
+                }
             } else {
                 item.classList.remove('show');
                 item.classList.add('hide');
+                if (item.classList.contains('progress_bar_fill')) {
+                    item.classList.remove('filled');
+                }
             }
         });
     }
@@ -68,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-const email_counter = document.querySelector('.email_counter');
+const email_counter = document.querySelector('.email_counter span');
 
 const { data, error, count } = await supabase
     .from('waitlist')
@@ -81,16 +88,12 @@ if (error) {
     if (count > 300) {
         spots_left = 1000 - count;
     }
-    email_counter.innerHTML += `
-    <br>
-  <strong style="color:#2b8a3e;">
-    Only ${spots_left} spots left!
-  </strong>
-  <br>
-  <span style="color:#777;">
-    Hurry — spots are filling up fast! No spam. Unsubscribe anytime.
-  </span>
-`;
+    email_counter.innerHTML = `
+    <strong style="color:#32CD32;">
+    Hurry up! Only ${spots_left} spots left to join <span style="text-decoration: underline;">VerseForge!</span>
+    </strong>`;
+    email_counter.classList.add('show');
+    email_counter.classList.remove('hide');
 
 }
 
