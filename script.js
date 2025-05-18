@@ -6,9 +6,9 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", function () {
     // Progress Bar
-    const currentAmount = 200;
+    const currentAmount = 20;
     const targetAmount = 300;
-    const progressItems = document.querySelectorAll('.Aitem');
+    const progressItems = document.querySelectorAll('.fade-in');
     const progress_text = document.querySelector('.progress-text');
     const progress_bar_fill = document.querySelector('.progress_bar_fill');
 
