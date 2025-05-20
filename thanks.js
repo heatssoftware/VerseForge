@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const email = params.get('email');
 
 function generateEmailShareLink() {
-  return `http://127.0.0.1:5500?ref=${encodeURIComponent(email)}`;
+  return `https://verseforge.site?ref=${encodeURIComponent(email)}`;
 }
 
 function copyLink() {
