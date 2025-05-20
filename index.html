@@ -19,23 +19,54 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <header>
+    <header id="waitlist-section">
         <!-- <div class="header-effect"></div> -->
         <div class="head_container">
             <h1>Create. Sync. Share.</h1>
             <p>Bring Your Music to Life with Visual Lyrics & Animated Backgrounds</p>
             <div class="header-form">
-                <p class="email_counter">💸 Early Access Bonus: Save $20 instantly. Up to $50 with referrals.<br>
-                    ✅ No spam. Unsubscribe anytime. 🔒 Your email stays private.<br><span class="hide"><br></span>
-                </p>
                 <form>
                     <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit">Get Early Access</button>
                 </form>
-                <p class="referral-note">🎁 Invite friends after signing up to unlock more savings and exclusive features.</p>
-            </div>
+                <p class="email_counter">
+                    No spam. Unsubscribe anytime. Your email stays private.<br><span class="hide"><br></span>
+                </p>
+                <p class="referral-note">First, sign up to get your invite link — then share with friends to unlock free Premium months!</p>
+                <table id="invite-table" border="1" cellpadding="8" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Friends Invited</th>
+                            <th>Free Premium Months</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>12</td>
+                        </tr>
+                    </tbody>
+                </table>
         </div>
     </header>
+    <button class="waitlist-btn" onclick="scrollToWaitlist()">Get early access</button>
+
     
     <section id="app-description">
         <h1 class="fade-in">Why VerseForge?</h1>
@@ -52,7 +83,7 @@
         </div>
     </section>
 
-    <h1>Planned Features</h1>
+    <h1 class="fade-in">Planned Features</h1>
     <div class="features-grid">
     
       <div class="feature-card fade-in">
@@ -122,7 +153,7 @@
   
     </div>
     <div class="center-wrapper">
-        <a href="blogs/" class="blog-link">Read my blogs and updates for more details!</a>
+        <a href="blogs/" class="blog-link fade-in">Read my blogs and updates for more details!</a>
     </div>
 
     <section class="fade-in">
@@ -130,13 +161,14 @@
         <p id="donation_desc" class="fade-in">I am a solo developer and designer dedicated to creating the best experience possible for You!  ❤️ Your support means everything! Join the community and help shape the future of VerseForge.</p>
         <div class="progress_bar">
             <div class="progress_bar_fill fade-in"></div>
-            <a class="progress-text" href="https://patreon.com/VerseForge" target="_blank">0% Funded</a>
+            <a class="progress-text fade-in" href="https://patreon.com/VerseForge" target="_blank">0% Funded</a>
         </div>
         <a class="support-button fade-in" href="https://patreon.com/VerseForge" target="_blank">Support me on Patreon</a>
     </section>
 
     
-    <hr style="width: 50vw; background-color: #000;">
+    <div class="hr_line fade-in"></div>
+
     <footer class="fade-in">
         <div class="social-media-links">
             <a href="https://discord.gg/dPGXSbguW5" target="_blank">

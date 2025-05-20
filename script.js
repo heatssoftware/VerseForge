@@ -1,100 +1,204 @@
-import { createClient } from 'https://cdn.skypack.dev/@supabase/supabase-js';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 const supabaseUrl = 'https://esgnswgkwadevqmhkpnl.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+
+var isMobile = window.innerHeight > window.innerWidth;
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Progress Bar
-    const currentAmount = 20;
-    const targetAmount = 300;
-    const progressItems = document.querySelectorAll('.fade-in');
-    const progress_text = document.querySelector('.progress-text');
-    const progress_bar_fill = document.querySelector('.progress_bar_fill');
-
-    const progressPercent = Math.min((currentAmount / targetAmount) * 100, 100);
-    progress_bar_fill.style.setProperty('--target-width', progressPercent.toFixed(1) + '%');
-    progress_text.textContent = "$" + currentAmount + ' / $' + targetAmount + ' raised';
-
-    function checkVisibility() {
-        const triggerBottom = window.innerHeight / 5 * 4;
-        progressItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            if (itemTop < triggerBottom) {
-                item.classList.add('show');
-                item.classList.remove('hide');
-                if (item.classList.contains('progress_bar_fill')) {
-                    item.style.setProperty('--target-width', progressPercent.toFixed(1) + '%');
-                    item.classList.add('filled');
-                }
-            } else {
-                item.classList.remove('show');
-                item.classList.add('hide');
-                if (item.classList.contains('progress_bar_fill')) {
-                    item.classList.remove('filled');
-                }
-            }
-        });
-    }
-
-    // Event listener for scroll
-    window.addEventListener('scroll', checkVisibility);
-
-    // Initial call to show elements in view
-    checkVisibility();
-
-    // Enable smooth scrolling via CSS
-    document.documentElement.style.scrollBehavior = 'smooth';
-
-    // Form handling
-    const form = document.querySelector('form');
-    form.addEventListener('submit', async function (event) {
-        event.preventDefault();
-        const email = form.querySelector('input[type="email"]').value;
-
-        if (email && form.checkValidity()) {
-            // Debugging: Ievēro, vai e-pasts tiek iegūts
-            console.log('Submitting email:', email);
-
-            const { data, error } = await supabase
-                .from('waitlist')
-                .insert([{ email: email }]);
-
-            if (error) {
-                // Debugging: Skatīsimies uz kļūdām
-                alert('Error: ' + error.message);
-                console.error(error);
-            } else {
-                // Debugging: Pārbaudīsim, vai dati tiek ievietoti
-                console.log('Inserted email:', data);
-                form.reset();
-                window.location.href = 'thanks';
-            }
+  // Progress Bar
+  const currentAmount = 20;
+  const targetAmount = 300;
+  const progressItems = document.querySelectorAll('.fade-in');
+  const progress_text = document.querySelector('.progress-text');
+  const progress_bar_fill = document.querySelector('.progress_bar_fill');
+  
+  const progressPercent = Math.min((currentAmount / targetAmount) * 100, 100);
+  progress_bar_fill.style.setProperty('--target-width', progressPercent.toFixed(1) + '%');
+  progress_text.textContent = "$" + currentAmount + ' / $' + targetAmount + ' raised';
+  
+  function checkVisibility() {
+    const triggerBottom = window.innerHeight / 5 * 4;
+    let featureCardIndex = 0;
+    progressItems.forEach(item => {
+      const itemTop = item.getBoundingClientRect().top;
+      if (itemTop < triggerBottom) {
+        if (item.classList.contains("feature-card")) {
+          if (item.classList.contains("hide")) { featureCardIndex++; }
+            setTimeout(() => {
+              item.classList.add('show');
+              item.classList.remove('hide');
+            }, featureCardIndex * 200);
+        } else {
+          item.classList.add('show');
+          item.classList.remove('hide');
         }
+        if (item.classList.contains('progress_bar_fill')) {
+          item.style.setProperty('--target-width', progressPercent.toFixed(1) + '%');
+          item.classList.add('filled');
+        }
+        if (item.classList.contains("hr_line")) {
+          item.style.setProperty('--target-width', "80%");
+          item.classList.add('filled');
+        }
+      } else {
+        item.classList.remove('show');
+        item.classList.add('hide');
+        if (item.classList.contains('progress_bar_fill') || item.classList.contains("hr_line")) {
+          item.classList.remove('filled');
+        }
+      }
     });
+  }
+  
+  // Event listener for scroll
+  window.addEventListener('scroll', checkVisibility);
+  
+  // Initial call to show elements in view
+  checkVisibility();
+  
+  const form = document.querySelector('form');
+  
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+  
+    const email = form.querySelector('input[type="email"]').value.trim();
+  
+    if (!email || !form.checkValidity()) return;
+  
+    try {
+      await joinWaitlist(email);
+      handleShareAndRedirect(email);
+    } catch (err) {
+      console.error('❌ Kļūda:', err.message);
 
+    }
+  });
 });
 
-const email_counter = document.querySelector('.email_counter span');
+async function fetchWaitlistCount() {
+  try {
+    const response = await fetch('https://esgnswgkwadevqmhkpnl.supabase.co/functions/v1/waitlist-count');
+    const result = await response.json();
 
-const { data, error, count } = await supabase
-    .from('waitlist')
-    .select('*', { count: 'exact' });
-
-if (error) {
-    console.error('Error fetching count:', error);
-} else {
-    const spots_left = 300 - count;
-    if (count > 300) {
-        spots_left = 1000 - count;
+    if (response.ok) {
+      return result.count;
+    } else {
+      console.error('❌ Kļūda:', result.error);
     }
-    email_counter.innerHTML = `
-    <strong style="color:#32CD32;">
-    Hurry up! Only ${spots_left} spots left to join <span style="text-decoration: underline;">VerseForge!</span>
-    </strong>`;
-    email_counter.classList.add('show');
-    email_counter.classList.remove('hide');
-
+  } catch (err) {
+    console.error('❌ Tīkla kļūda:', err);
+  }
 }
 
 
+
+let currentScroll = 0;
+let targetScroll = 0;
+const ease = 0.1;
+
+function updateScroll() {
+  currentScroll += (targetScroll - currentScroll) * ease;
+  window.scrollTo(0, currentScroll);
+  requestAnimationFrame(updateScroll);
+}
+
+if (isMobile) {
+    document.body.style.overflow = 'none';
+} else {
+    window.addEventListener('wheel', e => {
+      e.preventDefault();
+      targetScroll += e.deltaY;
+      targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+    }, { passive: false });
+    
+    updateScroll();
+    document.body.style.overflow = 'hidden';
+}
+
+
+const waitlistBtn = document.querySelector('.waitlist-btn');
+const waitlistSection = document.getElementById('waitlist-section');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.9) {
+        waitlistBtn.style.opacity = '1';
+        waitlistBtn.style.pointerEvents = 'auto';
+        waitlistBtn.style.transform = 'translateY(0)';
+    } else {
+        waitlistBtn.style.opacity = '0';
+        waitlistBtn.style.pointerEvents = 'none';
+        waitlistBtn.style.transform = 'translateY(calc(100% + 4vw))';
+    }
+});
+
+function scrollToWaitlist() {
+    waitlistSection.scrollIntoView({ behavior: 'smooth' });
+    targetScroll = 0;
+}
+
+window.scrollToWaitlist = scrollToWaitlist;
+
+
+async function joinWaitlist(email) {
+  const res = await fetch('https://esgnswgkwadevqmhkpnl.supabase.co/functions/v1/waitlist-signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email })
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error || 'Nezināma kļūda');
+  }
+
+  return await res.json(); // Atgriež servera atbildi
+}
+
+
+
+async function ShareByEmailRef(email) {
+  try {
+    const res = await fetch('https://esgnswgkwadevqmhkpnl.supabase.co/functions/v1/share', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ref: email }),
+    });
+
+    if (res.ok) {
+      console.log('✅ Share added!');
+    } else {
+      const err = await res.json();
+      console.error('❌ Kļūda:', err);
+    }
+  } catch (error) {
+    console.error('❌ Tīkls vai CORS kļūda:', error);
+  }
+}
+
+async function handleShareAndRedirect(email) {
+  const params = new URLSearchParams(window.location.search);
+  const ref_email = params.get('ref');
+  if (ref_email) {
+    await ShareByEmailRef(ref_email);
+  }
+  window.location.href = `/thanks.html?email=${encodeURIComponent(email)}`;
+}
+
+
+
+
+
+const email_counter = document.querySelector('.email_counter span');
+const count = await fetchWaitlistCount();
+email_counter.innerHTML = `
+Join the growing <span style="font-weight: 600; color: var(--accent-color);">VerseForge</span> community — ${count} waitlisted!`;
+email_counter.classList.add('show');
+email_counter.classList.remove('hide');
