@@ -107,7 +107,7 @@ p {
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
-    width: 12vw;
+    width: calc(10vw + 60px);
     font-size: 1rem;
     transition: background-color 0.5s ease, transform 0.3s ease;
 }
@@ -141,4 +141,34 @@ footer {
 .social-media-links img {
     width: 24px;
     height: 24px;
+}
+
+
+@media screen and (max-width: 600px) {
+    body {
+        margin: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    #invite-table {
+        max-width: 100%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #copyBtn {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
 }
