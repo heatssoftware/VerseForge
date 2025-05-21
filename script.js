@@ -154,14 +154,14 @@ async function joinWaitlist(email) {
 
 
 
-async function ShareByEmailRef(email) {
+async function ShareByEmailRef(ref_email, email) {
   try {
     const res = await fetch('https://esgnswgkwadevqmhkpnl.supabase.co/functions/v1/share', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ref: email }),
+      body: JSON.stringify({ ref: ref_email, email: email }),
     });
 
     if (res.ok) {
@@ -178,8 +178,10 @@ async function ShareByEmailRef(email) {
 async function handleShareAndRedirect(email) {
   const params = new URLSearchParams(window.location.search);
   const ref_email = params.get('ref');
+  console.log('Ref email:', ref_email);
+  console.log('Current email:', email);
   if (ref_email && ref_email !== email) {
-    await ShareByEmailRef(ref_email);
+    await ShareByEmailRef(ref_email, email);
   }
   window.location.href = `/thanks.html?email=${encodeURIComponent(email)}`;
 }
