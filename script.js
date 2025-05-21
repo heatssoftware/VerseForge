@@ -65,7 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
       await joinWaitlist(email);
       handleShareAndRedirect(email);
     } catch (err) {
-      console.error('❌ Kļūda:', err.message);
+      if (err.message === 'Email is not valid') {
+        alert('Email is not valid. Please enter a valid email address.');
+      }
+      console.log('❌ Error:', err.message);
 
     }
   });
@@ -146,7 +149,7 @@ async function joinWaitlist(email) {
 
   if (!res.ok) {
     const err = await res.json();
-    throw new Error(err.error || 'Nezināma kļūda');
+    throw new Error(err.error || 'Unknown error occurred');
   }
 
   return await res.json(); // Atgriež servera atbildi
@@ -168,10 +171,10 @@ async function ShareByEmailRef(ref_email, email) {
       console.log('✅ Share added!');
     } else {
       const err = await res.json();
-      console.error('❌ Kļūda:', err);
+      console.log('❌ Error:', err);
     }
   } catch (error) {
-    console.error('❌ Tīkls vai CORS kļūda:', error);
+    console.error('❌ CORS error:', error);
   }
 }
 
