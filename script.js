@@ -1,12 +1,4 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
-const supabaseUrl = 'https://esgnswgkwadevqmhkpnl.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU';
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-
 var isMobile = window.innerHeight > window.innerWidth;
-
 
 document.addEventListener("DOMContentLoaded", function () {
   // Progress Bar
@@ -186,7 +178,7 @@ async function ShareByEmailRef(email) {
 async function handleShareAndRedirect(email) {
   const params = new URLSearchParams(window.location.search);
   const ref_email = params.get('ref');
-  if (ref_email) {
+  if (ref_email && ref_email !== email) {
     await ShareByEmailRef(ref_email);
   }
   window.location.href = `/thanks.html?email=${encodeURIComponent(email)}`;
