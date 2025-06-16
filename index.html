@@ -18,53 +18,45 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
+    <video autoplay muted loop playsinline id="background-video">
+        <source src="video/background_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <header id="waitlist-section">
         <!-- <div class="header-effect"></div> -->
         <div class="head_container">
-            <h1>Create. Sync. Share.</h1>
-            <p>Bring Your Music to Life with Visual Lyrics & Animated Backgrounds</p>
+            <h1 style="margin-inline: 10vw;">Create Visual Lyrics That Move with Your Music</h1>
+            <p>
+                Make your songs come alive with synced lyrics & stunning visuals.<br>
+                Be the first to try VerseForge.
+            </p>
             <div class="header-form">
                 <form>
                     <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit">Get Early Access</button>
+                    <button type="submit">Join Waitlist</button>
                 </form>
                 <p class="email_counter">
-                    No spam. Unsubscribe anytime. Your email stays private.<br><span class="hide"><br></span>
+                    No spam. Leave anytime.<br><span class="hide"><br></span>
                 </p>
-                <p class="referral-note">First, sign up to get your invite link — then share with friends to unlock free Premium months!</p>
-                <table id="invite-table" border="1" cellpadding="8" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Friends Invited</th>
-                            <th>Free Premium Months</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>12</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p class="referral-note"><strong>💎 Want Free Premium?</strong><br> Invite friends after signing up.</p>
+                <div class="table-container">
+                    <table id="invite-table">
+                      <thead>
+                        <tr><th>Friends</th><th>Free Months</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>0</td><td>1</td></tr>
+                        <tr><td>3</td><td>2</td></tr>
+                        <tr><td>5</td><td>3</td></tr>
+                        <tr><td>10</td><td>6</td></tr>
+                        <tr><td>15</td><td>12</td></tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </header>
-    <button class="waitlist-btn" onclick="scrollToWaitlist()">Get early access</button>
+    <button class="waitlist-btn" onclick="scrollToWaitlist()">Join Waitlist</button>
 
     
     <section id="app-description">
@@ -81,78 +73,88 @@
             </video>
         </div>
     </section>
-
+    
     <h1 class="fade-in">Planned Features</h1>
     <div class="features-grid">
-    
-      <div class="feature-card fade-in">
-        <video autoplay muted loop playsinline>
-            <source src="video/lyrics_use.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <h2>Lyrics Animations</h2>
-        <p>Customizable animations for lyrics.</p>
-      </div>
+        <div class="feature-card fade-in">
+          <div class="image-wrapper">
+              <img src="img/blurred/music_icon.jpg">
+          </div>
+          <h2>Integration with Streaming Services</h2>
+          <p>Pull song info from Spotify, Apple Music, etc.</p>
+        </div>
 
-      <div class="feature-card fade-in">
-        <div class="image-wrapper">
-            <img src="img/blurred/app.png" class="blurred">
-            <p>Coming Soon!</p>
+        <div class="feature-card fade-in">
+            <video autoplay muted loop playsinline>
+                <source src="video/code_editor.mp4" type="video/mp4">
+            </video>
+            <h2>Code editor</h2>
+            <p>Auto-completion, and live preview. Script complex lyric animations.</p>
         </div>
-        <h2>Interactive Lyrics</h2>
-        <p>Animated effects, interactive effects, advanced placement.</p>
-    </div>
-    
-    <div class="feature-card fade-in">
-      <div class="image-wrapper">
-          <img src="img/blurred/Marketplace.png">
-      </div>
-      <h2>Theme Library</h2>
-      <p>Pre-made themes for easy customization.</p>
+        
+        <div class="feature-card fade-in">
+            <video autoplay muted loop playsinline>
+                <source src="video/editor_video.mp4" type="video/mp4">
+            </video>
+            <h2>Visual Editor</h2>
+            <p>Create stunning lyric themes effortlessly with our intuitive drag-and-drop interface.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+            <video autoplay muted loop playsinline>
+                <source src="video/background_video.mp4" type="video/mp4">
+            </video>
+            <h2>Beat & Tempo Detection</h2>
+            <p>Themes react dynamically to beat and tempo changes.</p>
+        </div>
+        
+        <div class="feature-card fade-in">
+            <video autoplay muted loop playsinline class="blurred">
+              <source src="video/lyrics_use.mp4" type="video/mp4">
+            </video>
+            <h2>Lyrics Animations</h2>
+            <p>Customizable animations for lyrics.</p>
+            <p style="color: #ffc800;">Licensing required – support development.</p>
+        </div>
+        
+        <div class="feature-card fade-in">
+          <div class="image-wrapper">
+              <img src="img/blurred/cloud_save.jpg" class="blurred">
+          </div>
+          <h2>Cloud Sync & Backup</h2>
+          <p>Save your themes and settings to the cloud.</p>
+          <p style="color: #ffc800;">Secure multi-device sync coming soon.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+            <div class="image-wrapper">
+                <img src="img/blurred/concert.jpg" class="blurred">
+            </div>
+            <h2>Live Performance Sync</h2>
+            <p>Optimized visuals synced in real-time for concerts.</p>
+            <p style="color: #ffc800;">Real-time stage sync in development.</p>
+        </div>
+        
+        <div class="feature-card fade-in">
+          <div class="image-wrapper">
+              <img src="img/blurred/Marketplace.png" class="blurred">
+          </div>
+          <h2>Theme Marketplace</h2>
+          <p>Allow users to create, buy, and sell custom lyric themes.</p>
+          <p style="color: #ffc800;">Community-powered themes on the way.</p>
+        </div>
+      
     </div>
 
-    <div class="feature-card fade-in">
-        <video autoplay muted loop playsinline>
-            <source src="video/editor_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <h2>Theme Editors</h2>
-        <p>Create custom themes with fonts, colors, and animations.</p>
-    </div>
-  
-    <div class="feature-card fade-in">
-        <div class="image-wrapper">
-            <img src="img/blurred/settings.png" class="blurred">
-            <p>Coming Soon!</p>
-        </div>
-        <h2>Song Counters & Triggers</h2>
-        <p>Set actions after a number of songs or specific lyrics.</p>
-    </div>
-  
-  
-      <div class="feature-card fade-in">
-        <div class="image-wrapper">
-            <img src="img/blurred/settings.png" class="blurred">
-            <p>Coming Soon!</p>
-        </div>
-        <h2>Sharing & Collaboration</h2>
-        <p>Share, download, and rate custom themes.</p>
-      </div>
-  
-      <div class="feature-card fade-in">
-        <div class="image-wrapper">
-            <img src="img/blurred/settings.png" class="blurred">
-            <p>Coming Soon!</p>
-        </div>
-        <h2>Feedback & Ratings</h2>
-        <p>Highlight top-rated themes based on user feedback.</p>
-      </div>
-  
-  
-    </div>
-    <div class="center-wrapper">
+
+
+
+    <!-- <div class="center-wrapper">
         <a href="blogs/" class="blog-link fade-in">Read my blogs and updates for more details!</a>
-    </div>
+    </div> -->
+
+
+
 
     <section class="fade-in">
         <h1>Be part of something new — created by one, shaped by many.</h1>
