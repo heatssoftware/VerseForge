@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
               item.classList.add('show');
               item.classList.remove('hide');
-            }, featureCardIndex * 200);
+            }, featureCardIndex * 100);
         } else {
           item.classList.add('show');
           item.classList.remove('hide');
