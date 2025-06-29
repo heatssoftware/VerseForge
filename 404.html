@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found</title>
+  <link rel="stylesheet" href="/style.css" />
+  <meta name="robots" content="noindex" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(50deg, var(--bg), var(--bg-light), var(--highlight));
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      text-align: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 6vw;
+      margin: 0;
+      color: var(--primary);
+      font-weight: bolder;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: calc(1.2vw + 0.5rem);
+      margin: 1rem 0;
+      color: var(--text-muted);
+    }
+
+    .support-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 12px 24px;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      border: 2px solid var(--border-muted);
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: calc(1vw + 0.5rem);
+      transition: all 0.3s ease;
+    }
+
+    .support-button:hover {
+      background-color: var(--bg-light);
+      color: var(--text);
+      transform: scale(1.05);
+      border-color: var(--primary);
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 16vw; }
+      p { font-size: 1rem; }
+      .support-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <p>This page doesn't exist or has been moved.<br>Let’s get you back on track!</p>
+    <a href="/" style="
+  display: inline-block;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--primary), var(--highlight));
+  padding: 16px 28px;
+  border-radius: 32px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+"
+onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.4)'"
+onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'"
+>
+⬅️ Back to Home
+</a>
+
+  </div>
+</body>
+</html>
