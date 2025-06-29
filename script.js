@@ -198,7 +198,7 @@ async function handleShareAndRedirect(email) {
 const email_counter = document.querySelector('.email_counter span');
 const count = await fetchWaitlistCount();
 email_counter.innerHTML = `
-You're not alone — <span style="font-weight: 600; color: var(--accent-color);">${count + 210}</span> music lovers have already joined!`;
+You're not alone — <span style="font-weight: 600; color: var(--accent-color);">${count + 76}</span> music lovers have already joined!`;
 
 email_counter.classList.add('show');
 email_counter.classList.remove('hide');
