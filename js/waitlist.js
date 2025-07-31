@@ -120,5 +120,5 @@ async function handleShareAndRedirect(email) {
   form.style.display = 'none';
   if (errorMsg) errorMsg.style.display = 'none';
   successMsg.style.display = 'block';
-  successMsg.textContent = "Thanks! You're on the list.<br>Your unique sharing link will be sent to your email.";
+  successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
 }
