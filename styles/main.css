@@ -1,0 +1,33 @@
+/* pages */
+@import url("home.css");
+@import url("waitlist.css");
+@import url("refferal.css");
+
+/* parts */
+@import url("base.css");
+@import url("footer.css");
+@import url("features.css");
+@import url("nav_bar.css");
+
+
+
+:root {
+    --bg-dark: hsl(258, 40%, 6%);        /* Tumši violets, tuvāk melnam */
+    --bg: hsl(260, 45%, 10%);            /* Galvenais fons */
+    --bg-light: hsl(260, 40%, 16%);      /* Vieglāks fons, piemērots sekcijām */
+
+    --text: hsl(0, 0%, 98%);
+    --text-muted: hsl(260, 20%, 70%);
+
+    --highlight: hsl(220, 100%, 68%);
+    --border: hsl(260, 50%, 35%);
+    --border-muted: hsl(260, 30%, 25%);
+
+    --primary: hsl(280, 100%, 68%);      /* Galvenā violeta (CTA, linki) */
+    --secondary: hsl(190, 100%, 40%);    /* Akcentējoša zila/zaļa */
+    --danger: hsl(0, 80%, 60%);          /* Sarkana kļūdām */
+    --warning: hsl(40, 100%, 50%);       /* Dzeltena brīdinājumiem */
+    --success: hsl(150, 70%, 45%);       /* Zaļa veiksmei */
+    --info: hsl(210, 90%, 60%);          /* Gaiši zila informācijai */
+}
+

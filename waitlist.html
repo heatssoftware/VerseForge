@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Join Waitlist</title>
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+</head>
+<body>
+    <img class="background" src="img/background_texture.jpg" alt="Background Image" />
+    <nav>
+        <div class="logo">
+            <a class="after-other fade-in hide" href="index.html"><img src="img/VerseForge_no_bg.png" alt="VerseForge Logo">
+                <span class="logo-text">VerseForge</span>
+            </a>
+        </div>
+        <div class="menu-toggle">&#9776;</div>
+
+        <ul class="nav-links">
+            <li><a class="after-other fade-in hide" href="index.html">Home</a></li>
+            <li><a class="after-other fade-in hide" href="features.html">Features</a></li>
+            <li><a class="after-other fade-in hide" href="refferal.html">Refferal program</a></li>
+            <li><a href="https://discord.gg/dPGXSbguW5" target="_blank" class="nav-external after-other fade-in hide">
+                Community
+                <img src="img/discord.svg" alt="External Link Icon" />
+            </a></li>
+            <li><a class="after-other fade-in hide mobile-join" href="waitlist.html">Join Waitlist</a></li>
+        </ul>
+        <a class="cta after-other fade-in hide" href="waitlist.html">Join Waitlist</a>
+        <script src="js/nav.js"></script>
+    </nav>
+
+    <div class="waitlist-box">
+        <div class="waitlist-logo">
+            <img src="img/VerseForge_no_bg.png" alt="VerseForge Logo" />
+        </div>
+        <h1>Join the Waitlist</h1>
+        <p><strong>Be the first to try VerseForge when it launches.</strong><br>Get exclusive early access, test new features before anyone else, and help shape the future of music visuals.</p>
+
+        <form id="waitlist-form">
+            <input type="text" placeholder="Your email" id="email-input" />
+            <button type="submit">Join</button>
+        </form>
+        <div class="success" id="success-msg">Thanks! You're on the list. You may close this site.</div>
+        <div class="error-msg" id="error-msg">Something went wrong. Please try again.</div>
+    </div>
+
+    <script src="js/waitlist.js"></script>
+    <script src="js/scroll-anim.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.footer {
+  background: black;
+  color: var(--text-muted);
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.footer-brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.social-media-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-media-links img {
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.social-media-links a:hover img {
+  transform: scale(1.1);
+}
+
+.footer-bottom p {
+  margin: 4px 0;
+}
+
+.legal-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 12px 0 0 0;
+  margin: 0;
+}

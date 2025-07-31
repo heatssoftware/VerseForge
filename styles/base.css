@@ -1,0 +1,103 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+img, video, a, footer, nav {
+    user-select: none;
+}
+
+.table-container {
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-inline: calc(1vw + 0.2rem);
+    box-sizing: border-box;
+    overflow-x: auto;
+    user-select: none;
+}
+
+#invite-table {
+    width: calc(100% - 64px);
+    min-width: 100px;
+    border-collapse: collapse;
+    margin: 32px;
+    border: solid 2px var(--border-muted);
+    border-radius: 16px;
+    overflow: hidden;
+    font-size: calc(1vw + 0.5rem);
+    background-color: var(--bg-dark);
+
+    /* Glow efekts */
+    box-shadow:
+        0 0 0 2px var(--bg),
+        0 0 12px var(--bg),
+        0 0 24px var(--bg)
+}
+
+
+/* Galvene */
+#invite-table thead tr {
+    background-color: var(--bg);
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+/* Šūnas */
+#invite-table th,
+#invite-table td {
+    padding: 1vw 2vw;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Alternējošas rindas */
+#invite-table tbody tr:nth-child(odd) {
+    background-color: var(--bg-light);
+}
+
+#invite-table tbody tr:nth-child(even) {
+    background-color: var(--bg-dark);
+}
+
+
+
+
+::selection {
+    color: white;
+    background-color: black;
+}
+
+.show {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    background: black;
+    width: 100%;
+}
+
+/* Scroll animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -5,180 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VerseForge is the ultimate music visualizer and lyric sync tool for your desktop. Create stunning animated backgrounds, personalize your music experience, and join early access today!">
     <meta name="keywords" content="music visualizer, animated backgrounds, lyrics sync, desktop music experience, VerseForge, real-time lyrics, customize lyrics display">
-    <title>VerseForge - Sync Lyrics with Music & Customize Your Experience</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://verseforge.site" />
+    <title>VerseForge - The Next Generation of Music Visuals</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="canonical" href="https://verseforge.site"/>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
 
     <!-- Additional meta tags for better device compatibility -->
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <video autoplay muted loop playsinline id="background-video">
-        <source src="video/background_video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <header id="waitlist-section">
-        <!-- <div class="header-effect"></div> -->
-        <div class="head_container">
-            <h1 style="margin-inline: 10vw;">Create Visual Lyrics That Move with Your Music</h1>
-            <p>
-                Make your songs come alive with synced lyrics & stunning visuals.<br>
-                Be the first to try VerseForge.
-            </p>
-            <div class="header-form">
-                <form>
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit">Join Waitlist</button>
-                </form>
-                <p class="email_counter">
-                    No spam. Leave anytime.<br><span class="hide"><br></span>
-                </p>
-                <p class="referral-note"><strong>💎 Want Free Premium? 💎</strong><br> Invite friends after signing up.</p>
-                <div class="table-container">
-                    <table id="invite-table">
-                      <thead>
-                        <tr><th>Friends</th><th>Free Months</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr><td>0</td><td>1</td></tr>
-                        <tr><td>3</td><td>2</td></tr>
-                        <tr><td>5</td><td>3</td></tr>
-                        <tr><td>10</td><td>6</td></tr>
-                        <tr><td>15</td><td>12</td></tr>
-                      </tbody>
-                    </table>
+    <nav>
+        <div class="logo">
+            <a class="after-other fade-in hide" href="index.html"><img src="img/VerseForge_no_bg.png" alt="VerseForge Logo">
+                <span class="logo-text">VerseForge</span>
+            </a>
+        </div>
+        <div class="menu-toggle">&#9776;</div>
+
+        <ul class="nav-links">
+            <li><a class="after-other fade-in hide" href="index.html">Home</a></li>
+            <li><a class="after-other fade-in hide" href="features.html">Features</a></li>
+            <li><a class="after-other fade-in hide" href="refferal.html">Refferal program</a></li>
+            <li><a href="https://discord.gg/dPGXSbguW5" target="_blank" class="nav-external after-other fade-in hide">
+                Community
+                <img src="img/discord.svg" alt="External Link Icon" />
+            </a></li>
+            <li><a class="after-other fade-in hide mobile-join" href="waitlist.html">Join Waitlist</a></li>
+        </ul>
+        <a class="cta after-other fade-in hide" href="waitlist.html">Join Waitlist</a>
+        <script src="js/nav.js"></script>
+    </nav>
+
+    <header class="hero">
+        
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h1>The Next Generation of Music Visuals</h1>
+                <p>Sync Lyrics with Music & Customize Your Experience</p>
+                <div id="button-container">
+                    <a class="cta" href="waitlist.html">Join Waitlist</a>
+                    <a class="secondary" href="features.html">Learn more</a>
                 </div>
+            </div>
+            
+            <div class="hero-graphic fade-in hide">
+                <img src="img/headphones.png" height="200px" width="200px" alt="Flying Headphones" class="headphones" />
+                <p class="email_counter">
+                    <span class="active-dot"></span>
+                    <span class="email_text">0 already joined the waitlist!</span>
+                </p>
             </div>
         </div>
     </header>
-    <button class="waitlist-btn" onclick="scrollToWaitlist()">Join Waitlist</button>
 
-    
-    <section id="app-description">
-        <h1 class="fade-in">Why VerseForge?</h1>
-        <div class="app-description-container">
-            <ul class="app-description-list">
-              <li class="fade-in">Real-Time Lyric Display</li>
-              <li class="fade-in">No Coding Required</li>
-              <li class="fade-in">Fully Customizable Themes</li>
-            </ul>
-            <video autoplay muted loop playsinline id="editor-video" class="fade-in">
-                <source src="video/verseforge_preview.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <section class="inspired-by">
+        <p>Inspired by</p>
+        <div class="scroll-row">
+            <div class="item item1"><img src="icons/rainmeter.png" alt=""><span>Rainmeter</span></div>
+            <div class="item item2"><img src="icons/wallpaper_engine.png" alt=""><span>Wallpaper Engine</span></div>
+            <div class="item item3"><img src="icons/lively.png" alt=""><span>Lively Wallpaper</span></div>
+            <div class="item item4"><img src="icons/windhawk.png" alt=""><span>Windhawk</span></div>
+            <div class="item item5"><img src="icons/vzx.png" alt=""><span>VZX Music visualizer</span></div>
+            <div class="item item6"><img src="icons/milkdrop.png" alt=""><span>MilkDrop</span></div>
         </div>
     </section>
+
+
+
     
-    <div class="hr_line fade-in"></div>
-
-    <h1 class="fade-in">Planned Features</h1>
-    <div class="features-grid">
-        <div class="feature-card fade-in">
-          <div class="image-wrapper">
-              <img src="img/blurred/music_icon.jpg">
-          </div>
-          <h2>Integration with Streaming Services</h2>
-          <p>Pull song info from Spotify, Apple Music, etc.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-            <video autoplay muted loop playsinline>
-                <source src="video/code_editor.mp4" type="video/mp4">
-            </video>
-            <h2>Code editor</h2>
-            <p>Auto-completion, and live preview. Script complex lyric animations.</p>
-        </div>
-        
-        <div class="feature-card fade-in">
-            <video autoplay muted loop playsinline>
-                <source src="video/editor_video.mp4" type="video/mp4">
-            </video>
-            <h2>Visual Editor</h2>
-            <p>Create stunning lyric themes effortlessly with our intuitive drag-and-drop interface.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-            <video autoplay muted loop playsinline>
-                <source src="video/background_video.mp4" type="video/mp4">
-            </video>
-            <h2>Beat & Tempo Detection</h2>
-            <p>Themes react dynamically to beat and tempo changes.</p>
-        </div>
-        
-        <div class="feature-card fade-in">
-            <video autoplay muted loop playsinline class="blurred">
-              <source src="video/lyrics_use.mp4" type="video/mp4">
-            </video>
-            <h2>Lyrics Animations</h2>
-            <p>Customizable animations for lyrics.</p>
-            <p style="color: var(--warning)">Licensing required – support development.</p>
-        </div>
-        
-        <div class="feature-card fade-in">
-          <div class="image-wrapper">
-              <img src="img/blurred/cloud_save.jpg" class="blurred">
-          </div>
-          <h2>Cloud Sync & Backup</h2>
-          <p>Save your themes and settings to the cloud.</p>
-          <p style="color: var(--warning)">Secure multi-device sync coming soon.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-            <div class="image-wrapper">
-                <img src="img/blurred/concert.jpg" class="blurred">
+    <section class="features-cards">
+        <h2 class="fade-in">Key Features</h2>
+        <div class="card-grid">
+            <div class="card fade-in after-other">
+                <img src="icons/mic.svg" alt="Animations">
+                <h3>Lyrics Animations</h3>
+                <p>Beautiful dynamic animations that sync with your lyrics in real time.</p>
             </div>
-            <h2>Live Performance Sync</h2>
-            <p>Optimized visuals synced in real-time for concerts.</p>
-            <p style="color: var(--warning)">Real-time stage sync in development.</p>
+            <div class="card fade-in after-other">
+                <img src="icons/beat.svg" alt="Beat Detection">
+                <h3>Beat & Tempo Detection</h3>
+                <p>Detects rhythm and tempo to match visuals perfectly to your music.</p>
+            </div>
+            <div class="card fade-in after-other">
+                <img src="icons/store.svg" alt="Marketplace">
+                <h3>Theme Marketplace</h3>
+                <p>Discover, install and share visual themes from the community.</p>
+            </div>
         </div>
-        
-        <div class="feature-card fade-in">
-          <div class="image-wrapper">
-              <img src="img/blurred/Marketplace.png" class="blurred">
-          </div>
-          <h2>Theme Marketplace</h2>
-          <p>Allow users to create, buy, and sell custom lyric themes.</p>
-          <p style="color: var(--warning)">Community-powered themes on the way.</p>
-        </div>
-      
-    </div>
-
-    <div class="hr_line fade-in"></div>
-
-    <section class="fade-in">
-        <h1>Be part of something new.</h1>
-        <p id="donation_desc" class="fade-in">I am a solo developer and designer dedicated to creating the best experience possible for You!  ❤️ Your support means everything! Join the community and help shape the future of VerseForge.</p>
-        <div class="progress_bar">
-            <div class="progress_bar_fill fade-in"></div>
-            <a class="progress-text fade-in" href="https://patreon.com/VerseForge" target="_blank">0% Funded</a>
-        </div>
-        <a class="support-button fade-in" href="https://patreon.com/VerseForge" target="_blank">Support me on Patreon</a>
+        <a href="features.html" class="features-cta fade-in">See all features →</a>
     </section>
 
-    
-    <div class="hr_line fade-in"></div>
 
-    <footer class="fade-in">
-        <div class="social-media-links">
-            <a href="https://discord.gg/dPGXSbguW5" target="_blank">
-                <img src="img/discord.svg" alt="Discord" />
-            </a>
-            <a href="https://x.com/heatssoftware" target="_blank">
-                <img src="img/x.svg" alt="X (Twitter)" />
-            </a>
-            <a href="https://patreon.com/VerseForge" target="_blank">
-                <img src="img/patreon.svg" alt="Patreon" />
-            </a>
+
+
+    <section class="referral-section fade-in">
+  <div class="referral-grid">
+    <div class="referral-image">
+      <img src="img/promotion.png" alt="Refer and earn" />
+    </div>
+    <div class="referral-content">
+      <h2 class="fade-in">Invite friends, earn free Premium</h2>
+      <p class="fade-in after-other">Share your unique link and move up the waitlist faster. The more friends you invite, the more rewards you unlock.</p>
+      <p class="fade-in after-other">Your unique referral link will be available after joining the waitlist.</p>
+      
+      <table class="referral-table fade-in after-other">
+        <thead>
+          <tr>
+            <th>Referrals</th>
+            <th>Reward</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 friend</td>
+            <td>1 month Premium</td>
+          </tr>
+          <tr>
+            <td>3 friends</td>
+            <td>2 months Premium</td>
+          </tr>
+          <tr>
+            <td>7 friends</td>
+            <td>3 months Premium</td>
+          </tr>
+          <tr>
+            <td>15+ friends</td>
+            <td>4 months Premium</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="referral-cta container fade-in hide">
+        <a class="cta" href="waitlist.html">Claim Your Spot</a>
+        <a class="secondary" href="refferal.html">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+    <section class="faq">
+        <h2 class="fade-in">Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <details class="faq-item after-other fade-in">
+                <summary>What is VerseForge?</summary>
+                <p>VerseForge is a desktop app that lets you <strong>sync lyrics</strong> with music in real time, <strong>animate them visually, and fully customize the experience</strong> with themes, code, or visual editing.</p>
+            </details>
+            <details class="faq-item after-other fade-in">
+                <summary>Will it work with Spotify?</summary>
+                <p><strong>Yes!</strong> Integration is planned via desktop audio capture and Windows API <strong>for every windows supported streaming service.</strong></p>
+            </details>
+            <details class="faq-item after-other fade-in">
+                <summary>Can I make my own themes?</summary>
+                <p><strong>Yes!</strong> A built-in editor lets you customize everything with visuals or code.</p>
+            </details>
+            <details class="faq-item after-other fade-in">
+                <summary>Is it free?</summary>
+                <p><strong>There will be a free version with access to all core features.</strong><br>
+                Premium users will get access to advanced tools, more customization options, cloud sync, and upcoming experimental features.<br>
+                The free plan is fully usable, but upgrading unlocks the full potential of VerseForge.</p>
+            </details>
         </div>
-        <p>Made with ❤️ by HeatsSoft</p>
-        <p>&copy; 2025 VerseForge. All rights reserved.</p>
+    </section>
+
+    <section class="container" id="waitlist-section">
+        <a class="cta" href="waitlist.html">Get Early Access</a>
+        <a class="secondary" href="https://discord.gg/dPGXSbguW5" target="_blank">Have questions? Join Discord →</a>
+    </section>
+
+
+
+
+
+
+    <footer class="footer fade-in">
+        <div class="footer-top">
+            <p class="footer-brand">VerseForge</p>
+            <div class="social-media-links">
+                <a href="https://discord.gg/dPGXSbguW5" target="_blank"><img src="img/discord.svg" alt="Discord" /></a>
+                <a href="https://x.com/heatssoftware" target="_blank"><img src="img/x.svg" alt="X (Twitter)" /></a>
+                <a href="https://patreon.com/VerseForge" target="_blank"><img src="img/patreon.svg" alt="Patreon" /></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Developed by HeatsSoft</p>
+            <p>&copy; 2025 VerseForge. All rights reserved.</p>
+            <p class="legal-note">By joining the waitlist, you agree to be contacted about updates. No data is shared with third parties.</p>
+        </div>
     </footer>
 
-    <script type="module" src="script.js"></script>
+
+    <script src="js/home.js"></script>
+    <script src="js/scroll-anim.js"></script>
 </body>
 </html>
