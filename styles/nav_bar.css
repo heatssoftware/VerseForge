@@ -85,6 +85,9 @@ nav a.cta:hover {
     color: var(--text);
     padding: 0 1rem;
 }
+.menu-toggle::before {
+    content: "☰";
+}
 
 @media (min-width: 768px) {
     nav a.cta {
