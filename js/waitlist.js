@@ -124,13 +124,11 @@ async function handleShareAndRedirect(email) {
   const googleLoginButton = document.getElementsByClassName('google-btn')[0];
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
-  if (form) {
-    form.style.display = 'none';
-  }
-  if (googleLoginButton) {
-    googleLoginButton.style.display = 'none';
-  }
+
+  if (form) form.style.display = 'none';
+  if (googleLoginButton) googleLoginButton.style.display = 'none';
   if (errorMsg) errorMsg.style.display = 'none';
+
   successMsg.style.display = 'block';
   successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
 }
@@ -138,10 +136,16 @@ async function handleShareAndRedirect(email) {
 const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU');
 
 async function signInWithGoogle() {
+  const ref = getRefFromCurrentURL();
+  const redirectUrl = `https://verseforge.site/thanks-google.html?ref=${encodeURIComponent(ref)}`;
+  if (!ref) {
+    redirectUrl = 'https://verseforge.site/thanks-google.html';
+  }
+
   const { data, error } = await supabaseClient.auth.signInWithOAuth({
     provider: 'google',
     options: {
-    redirectTo: 'https://verseforge.site/thanks-google.html'
+    redirectTo: redirectUrl
     }
   });
 }
