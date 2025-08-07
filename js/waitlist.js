@@ -1,5 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
+  
   const path = window.location.pathname;
 
   if (path.endsWith("thanks-google") || path.endsWith("thanks-google.html")) {
@@ -7,8 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
   const form = document.querySelector('form');
-  const successMsg = document.getElementById('success-msg');
-  const errorMsg = document.getElementById('error-msg');
 
   // Pārliecinies, ka paziņojumi ir paslēpti
   successMsg.style.display = 'none';

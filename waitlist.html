@@ -47,7 +47,11 @@
             <button type="submit">Join</button>
         </form>
         <p>Or join instantly:</p>
-        <button onclick="signInWithGoogle()">Sign in with Google</button>
+        <button class="google-btn" type="button" onclick="SignInWithGoogle()">
+            <img src="icons/google_logo.svg" alt="Google logo" />
+            Join waitlist with Google
+        </button>
+
 
         <div class="success" id="success-msg">Thanks! You're on the list. You may close this site.</div>
         <div class="error-msg" id="error-msg">Something went wrong. Please try again.</div>

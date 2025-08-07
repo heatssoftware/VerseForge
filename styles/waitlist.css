@@ -121,6 +121,52 @@ body {
 
 
 
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-dark);
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+}
+
+.google-btn img {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 0.5px rgba(0,0,0,0.1));
+}
+
+.google-btn:hover {
+  background-color: var(--bg);
+  border-color: #999;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.12);
+}
+
+.google-btn:active {
+  background-color: #141414;
+  border-color: #666;
+  box-shadow: none;
+}
+
+.google-btn:focus-visible {
+  outline: 2px solid #4285F4; /* Google zils */
+  outline-offset: 2px;
+}
+
+
+
+
 @media (max-width: 900px) {
     .waitlist-box {
         padding: 30px 20px;
