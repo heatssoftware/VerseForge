@@ -1,5 +1,11 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname;
+
+  if (path.endsWith("thanks-google") || path.endsWith("thanks-google.html")) {
+    handleLogin();
+    return;
+  }
   const form = document.querySelector('form');
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
@@ -123,7 +129,6 @@ async function handleShareAndRedirect(email) {
   successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
 }
 
-
 const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU');
 
 async function signInWithGoogle() {
@@ -134,6 +139,7 @@ async function signInWithGoogle() {
     }
   });
 }
+
 
 async function handleLogin() {
   const { data: { user } } = await supabaseClient.auth.getUser();
