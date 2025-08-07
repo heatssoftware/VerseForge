@@ -130,7 +130,7 @@ async function handleShareAndRedirect(email, waitlist_response) {
   if (errorMsg) errorMsg.style.display = 'none';
 
   successMsg.style.display = 'block';
-  var ref_url = `https://verseforge.site/thanks-google.html?ref=${encodeURIComponent(email)}`;
+  var ref_url = `https://verseforge.site?ref=${encodeURIComponent(email)}`;
   if (waitlist_response && waitlist_response.message == "Already signed up") {
     successMsg.innerHTML = `
   <strong>You're already on the list!</strong><br><br>
