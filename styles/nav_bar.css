@@ -81,6 +81,7 @@ nav a.cta:hover {
     display: none;
     cursor: pointer;
     font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text);
     padding: 0 1rem;
 }
