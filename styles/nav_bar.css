@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 nav {
     display: flex;
@@ -81,7 +81,7 @@ nav a.cta:hover {
     display: none;
     cursor: pointer;
     font-size: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Raleway", sans-serif;
     color: var(--text);
     padding: 0 1rem;
 }
