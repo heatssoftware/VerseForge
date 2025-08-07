@@ -122,3 +122,42 @@ async function handleShareAndRedirect(email) {
   successMsg.style.display = 'block';
   successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
 }
+
+
+const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU');
+
+async function signInWithGoogle() {
+  const { data, error } = await supabaseClient.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+    redirectTo: 'https://verseforge.site/thanks-google.html'
+    }
+  });
+}
+
+async function handleLogin() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+  successMsg.style.display = 'none';
+  errorMsg.style.display = 'none';
+  var email = '';
+  if (user && user.email) {
+    email = user.email;
+  } else {
+    errorMsg.textContent = 'You need to log in first.';
+    errorMsg.style.display = 'block';
+    return;
+  }
+
+  try {
+    await joinWaitlist(email);
+    handleShareAndRedirect(email);
+  } catch (err) {
+    let message = err.message === 'Email is not valid'
+      ? 'Please enter a valid email address.'
+      : 'Something went wrong. Please try again.';
+    
+    errorMsg.textContent = message;
+    errorMsg.style.display = 'block';
+    console.log('❌ Error:', err.message);
+  }
+}

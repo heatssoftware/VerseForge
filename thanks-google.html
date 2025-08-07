@@ -42,15 +42,6 @@
         <h1>Join the Waitlist</h1>
         <p><strong>Be the first to try VerseForge when it launches.</strong><br>Get exclusive early access, test new features before anyone else, and help shape the future of music visuals.</p>
 
-        <form id="waitlist-form">
-            <input type="text" placeholder="Your email" id="email-input" />
-            <button type="submit">Join</button>
-        </form>
-        <p>Or join instantly:</p>
-        <button onclick="signInWithGoogle()">Sign in with Google</button>
-
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
 
 
         <div class="success" id="success-msg">Thanks! You're on the list. You may close this site.</div>
@@ -58,7 +49,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="js/waitlist.js"></script>
     <script src="js/scroll-anim.js"></script>
+    <script src="js/waitlist.js"></script>
+    <script>handleLogin();</script>
 </body>
 </html>
