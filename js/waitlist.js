@@ -121,10 +121,14 @@ async function handleShareAndRedirect(email) {
 
   // Paslēpt formu, parādīt success ziņojumu
   const form = document.getElementById('waitlist-form');
+  const googleLoginButton = document.getElementsByClassName('google-btn')[0];
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
   if (form) {
     form.style.display = 'none';
+  }
+  if (googleLoginButton) {
+    googleLoginButton.style.display = 'none';
   }
   if (errorMsg) errorMsg.style.display = 'none';
   successMsg.style.display = 'block';
