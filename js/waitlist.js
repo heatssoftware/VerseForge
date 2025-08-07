@@ -1,14 +1,14 @@
-const successMsg = document.getElementById('success-msg');
-const errorMsg = document.getElementById('error-msg');
 
 document.addEventListener("DOMContentLoaded", function () {
   
   const path = window.location.pathname;
-
+  
   if (path.endsWith("thanks-google") || path.endsWith("thanks-google.html")) {
     handleLogin();
     return;
   }
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
   const form = document.querySelector('form');
 
   // Pārliecinies, ka paziņojumi ir paslēpti
@@ -143,6 +143,8 @@ async function signInWithGoogle() {
 
 
 async function handleLogin() {
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
   const { data: { user } } = await supabaseClient.auth.getUser();
   successMsg.style.display = 'none';
   errorMsg.style.display = 'none';
