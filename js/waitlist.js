@@ -1,7 +1,7 @@
+const successMsg = document.getElementById('success-msg');
+const errorMsg = document.getElementById('error-msg');
 
 document.addEventListener("DOMContentLoaded", function () {
-  const successMsg = document.getElementById('success-msg');
-  const errorMsg = document.getElementById('error-msg');
   
   const path = window.location.pathname;
 
