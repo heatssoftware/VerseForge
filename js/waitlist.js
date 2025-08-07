@@ -136,7 +136,7 @@ async function handleShareAndRedirect(email, waitlist_response) {
   <strong>You're already on the list!</strong><br><br>
   Share your invite link:<br>
   <input type="text" id="ref-link" value="${ref_url}" readonly>
-  <button onclick="copyLink()">Copy</button><br><br>
+  <button class="copy-btn" onclick="copyLink()">Copy</button><br><br>
   Share with your friends and unlock early features!
 `;
   } else {
@@ -144,7 +144,7 @@ async function handleShareAndRedirect(email, waitlist_response) {
   <strong>You're on the list!</strong><br><br>
   Share your invite link:<br>
   <input type="text" id="ref-link" value="${ref_url}" readonly style="width:100%; margin-top: 5px;">
-  <button onclick="copyLink()">Copy</button><br><br>
+  <button class="copy-btn" onclick="copyLink()">Copy</button><br><br>
   Share with your friends and unlock early features!
 `;
   }
