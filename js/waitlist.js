@@ -135,7 +135,7 @@ async function handleShareAndRedirect(email, waitlist_response) {
     successMsg.innerHTML = `
   <strong>You're already on the list!</strong><br><br>
   Share your invite link:<br>
-  <input type="text" id="ref-link" value="${ref_url}" readonly style="width:100%; margin-top: 5px;">
+  <input type="text" id="ref-link" value="${ref_url}" readonly>
   <button onclick="copyLink()">Copy</button><br><br>
   Share with your friends and unlock early features!
 `;
