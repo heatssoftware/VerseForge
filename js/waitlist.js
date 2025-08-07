@@ -130,12 +130,38 @@ async function handleShareAndRedirect(email, waitlist_response) {
   if (errorMsg) errorMsg.style.display = 'none';
 
   successMsg.style.display = 'block';
+  var ref_url = `https://verseforge.site/thanks-google.html?ref=${encodeURIComponent(email)}`;
   if (waitlist_response && waitlist_response.message == "Already signed up") {
-    successMsg.textContent = "You're already on the list. Make sure to share your unique link with friends!";
+    successMsg.innerHTML = `
+  <strong>You're already on the list!</strong><br><br>
+  Share your invite link:<br>
+  <input type="text" id="ref-link" value="${ref_url}" readonly style="width:100%; margin-top: 5px;">
+  <button onclick="copyLink()">Copy</button><br><br>
+  Share with your friends and unlock early features!
+`;
   } else {
-    successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
+    successMsg.innerHTML = `
+  <strong>You're on the list!</strong><br><br>
+  Share your invite link:<br>
+  <input type="text" id="ref-link" value="${ref_url}" readonly style="width:100%; margin-top: 5px;">
+  <button onclick="copyLink()">Copy</button><br><br>
+  Share with your friends and unlock early features!
+`;
   }
 }
+
+function copyLink() {
+  const link = document.getElementById("ref-link").value;
+
+  navigator.clipboard.writeText(link)
+    .then(() => {
+      alert("Link copied to clipboard!");
+    })
+    .catch(() => {
+      alert("Failed to copy the link.");
+    });
+}
+
 
 const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU');
 
