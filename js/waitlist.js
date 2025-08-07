@@ -123,8 +123,9 @@ async function handleShareAndRedirect(email) {
   const form = document.getElementById('waitlist-form');
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
-
-  form.style.display = 'none';
+  if (form) {
+    form.style.display = 'none';
+  }
   if (errorMsg) errorMsg.style.display = 'none';
   successMsg.style.display = 'block';
   successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
