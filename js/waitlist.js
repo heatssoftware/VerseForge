@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      await joinWaitlist(email);
-      handleShareAndRedirect(email);
+      const waitlist_response = await joinWaitlist(email);
+      handleShareAndRedirect(email, waitlist_response);
     } catch (err) {
       let message = err.message === 'Email is not valid'
         ? 'Please enter a valid email address.'
@@ -112,7 +112,7 @@ async function ShareByEmailRef(ref_email, email) {
   }
 }
 
-async function handleShareAndRedirect(email) {
+async function handleShareAndRedirect(email, waitlist_response) {
   const params = new URLSearchParams(window.location.search);
   const ref_email = params.get('ref');
   if (ref_email && ref_email !== email) {
@@ -130,7 +130,11 @@ async function handleShareAndRedirect(email) {
   if (errorMsg) errorMsg.style.display = 'none';
 
   successMsg.style.display = 'block';
-  successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
+  if (waitlist_response && waitlist_response.message == "Already signed up") {
+    successMsg.textContent = "You're already on the list. Make sure to share your unique link with friends!";
+  } else {
+    successMsg.textContent = "Thanks! You're on the list. Your unique sharing link will be sent to your email.";
+  }
 }
 
 const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU');
