@@ -138,7 +138,7 @@ const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supab
 async function signInWithGoogle() {
   const params = new URLSearchParams(window.location.search);
   const ref = params.get('ref');
-  const redirectUrl = `https://verseforge.site/thanks-google.html?ref=${encodeURIComponent(ref)}`;
+  var redirectUrl = `https://verseforge.site/thanks-google.html?ref=${encodeURIComponent(ref)}`;
   if (!ref) {
     redirectUrl = 'https://verseforge.site/thanks-google.html';
   }
