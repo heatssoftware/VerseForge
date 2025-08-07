@@ -172,8 +172,8 @@ async function handleLogin() {
   }
 
   try {
-    await joinWaitlist(email);
-    handleShareAndRedirect(email);
+    const waitlist_response = await joinWaitlist(email);
+    handleShareAndRedirect(email, waitlist_response);
   } catch (err) {
     let message = err.message === 'Email is not valid'
       ? 'Please enter a valid email address.'
