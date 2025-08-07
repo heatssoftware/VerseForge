@@ -136,7 +136,8 @@ async function handleShareAndRedirect(email) {
 const supabaseClient = supabase.createClient('https://esgnswgkwadevqmhkpnl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ25zd2drd2FkZXZxbWhrcG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjA2OTQsImV4cCI6MjA2MjAzNjY5NH0.iVn2fxpkOImcKqiTqtkjmUShTA1c64RwiNf-fHWFWhU');
 
 async function signInWithGoogle() {
-  const ref = getRefFromCurrentURL();
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
   const redirectUrl = `https://verseforge.site/thanks-google.html?ref=${encodeURIComponent(ref)}`;
   if (!ref) {
     redirectUrl = 'https://verseforge.site/thanks-google.html';
