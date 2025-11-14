@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
   const form = document.querySelector('form');
+  const or_text = document.getElementById('or-text');
 
   // Pārliecinies, ka paziņojumi ir paslēpti
   successMsg.style.display = 'none';
@@ -130,6 +131,8 @@ async function handleShareAndRedirect(email, waitlist_response) {
   if (errorMsg) errorMsg.style.display = 'none';
 
   successMsg.style.display = 'block';
+  or_text.style.display = 'none';
+
   var ref_url = `https://verseforge.site/waitlist?ref=${encodeURIComponent(email)}`;
   if (waitlist_response && waitlist_response.message == "Already signed up") {
     successMsg.innerHTML = `
@@ -141,7 +144,7 @@ async function handleShareAndRedirect(email, waitlist_response) {
 `;
   } else {
     successMsg.innerHTML = `
-  <strong>You're on the list!</strong><br><br>
+  <strong>Welcome to referral program.!</strong><br><br>
   Share your invite link:<br>
   <input type="text" id="ref-link" value="${ref_url}" readonly>
   <button class="copy-btn" onclick="copyLink()">Copy</button><br><br>
