@@ -1,0 +1,118 @@
+.download-wrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center; /* horizontāli */
+  align-items: center;     /* vertikāli */
+  padding: 20px;           /* mazliet vietas apkārt */
+}
+
+main.popcard {
+  background: var(--bg-dark);
+  color: var(--text);
+  padding: 50px 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(239, 239, 239, 0.2);
+  font-family: "Inter", sans-serif;
+}
+
+
+main.popcard h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+main.popcard p, main.popcard .lead {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.actions {
+  margin: 30px 0;
+}
+
+.actions .btn-primary {
+  border: none;
+  background-color: var(--primary);
+  color: var(--bg-dark);
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.actions .btn-primary:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.actions .btn-ghost {
+  border: 2px solid var(--border-muted);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.actions .btn-ghost:hover {
+  background-color: var(--border-muted);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.note {
+  background: var(--bg-light);
+  color: var(--text-muted);
+  padding: 25px 20px;
+  border-radius: 12px;
+  margin-top: 40px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.note strong {
+  color: var(--primary);
+}
+
+.steps li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+
+@media (max-width: 600px) {
+  .body {
+    background: var(--bg-dark);
+  }
+  .download-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+  main.popcard {
+    padding: 30px 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .actions .btn-primary, .actions .btn-ghost {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}

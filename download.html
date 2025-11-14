@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download VerseForge</title>
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<nav>
+        <div class="logo">
+            <a class="after-other fade-in hide" href="index.html"><img src="img/VerseForge_no_bg.png" alt="VerseForge Logo">
+                <span class="logo-text">VerseForge</span>
+            </a>
+        </div>
+        <div class="menu-toggle"><img src="icons/menu.svg" alt="Menu" /></div>
+
+        <ul class="nav-links">
+            <li><a class="after-other fade-in hide" href="index.html">Home</a></li>
+            <li><a class="after-other fade-in hide" href="features.html">Features</a></li>
+            <li><a class="after-other fade-in hide" href="refferal.html">Refferal program</a></li>
+            <li><a href="https://discord.gg/dPGXSbguW5" target="_blank" class="nav-external after-other fade-in hide">
+                Community
+                <img src="img/discord.svg" alt="External Link Icon" />
+            </a></li>
+            <li><a class="after-other fade-in hide mobile-join" href="download.html">Download</a></li>
+        </ul>
+        <a class="cta after-other fade-in hide" href="download.html">Download</a>
+        <script src="js/nav.js"></script>
+</nav>
+<div class="download-wrapper">
+    <main class="popcard" role="main">
+        <h1>Thank you for downloading VerseForge!</h1>
+        <p class="lead">Your download should start automatically. If not, click the button below:</p>
+    
+        <div class="actions">
+            <a class="btn btn-primary" id="manualDownload" href="https://github.com/heatssoftware/VerseForgeMVP/releases/download/setup/VerseForgeSetup.exe" download>Download Again</a>
+        </div>
+    
+        <div class="note" aria-live="polite">
+            <strong>Windows SmartScreen & unsigned/unregistered apps</strong>
+            <p>If Windows displays a SmartScreen warning that says "Windows protected your PC" or that the app is from an unknown publisher, this is normal for new or unsigned builds.</p>
+            <p>To run the installer safely:</p>
+            <ul class="steps">
+                <li>Click "More info" on the SmartScreen dialog.</li>
+                <li>Choose "Run anyway".</li>
+            </ul>
+        </div>
+    </main>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+    const link = document.createElement('a');
+    link.href = 'https://github.com/heatssoftware/VerseForgeMVP/releases/download/setup/VerseForgeSetup.exe';
+    link.download = 'VerseForgeSetup.exe';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+</script>
+<script src="js/scroll-anim.js"></script>
+</body>
+</html>
